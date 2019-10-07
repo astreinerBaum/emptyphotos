@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="no">
 <!--
     +------------------------+
     |Empty Photos            |
@@ -13,26 +13,82 @@
   -->
 
 <head>
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta property="og:image" content="empty.png">
+  <meta name="twitter:image" content="empty-twitter.png" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <script defer src="js/empty.js"></script>
+  <script defer src="js/dragscroll.js"></script>
+
+  <script>
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  </script>
   <style>
     body {
       padding: 0;
       margin: 0;
+      /* overflow: hidden; */
     }
-  </style>
-  <meta property="og:image" content="empty.png">
-  <meta name="twitter:image" content="empty-twitter.png" />
-  <script src="empty.js"></script>
-
-  <style>
     img {
+      display: block !important;
       position: absolute;
+      visibility: hidden;
+    }
+    img:not([src]){ 
+      display: block !important;
+    }
+
+    #container {
+      width: 10000px;
+      height: 10000px;
+    }
+
+    .dragscroll {
+      cursor: -webkit-grab;
+      cursor: -moz-grab;
+      cursor: -o-grab;
+      cursor: grab;
+      color: #fff;
+    }
+    .dragscroll:active{
+      cursor : -webkit-grabbing;
+      cursor : -moz-grabbing;
+      cursor : -o-grabbing;
+      cursor : grabbing;
+    }
+    #srcinfo{
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      padding: 5px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: lightgrey;
+      color: #444;
+      visibility: hidden;
+      z-index: 1;
+    }
+    #floatText{
+      position: fixed;
+      padding: 3px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff;
+      color: #444;
+      border: 1px solid lightgrey;
+      visibility: hidden;
+      z-index: 2;
     }
   </style>
 </head>
 
-<body>
+<body class="dragscroll">
+  <div id="srcinfo"></div>
+  <div id="floatText"></div>
+  <div id="container" class=dragscroll></div>
 </body>
 
 </html>
