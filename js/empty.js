@@ -4,9 +4,10 @@ const container = document.getElementById("container");
 container.addEventListener('mousemove', moveText)
 let containerHeight, containerWidth;
 let data;
+let updateTextPos;
 
 window.onload = async () => {
-  await fetch("data/missingtest.json")
+  await fetch("data/missing061019.json")
     .then(response => response.json())
     .then(json => (data = json));
 
@@ -53,21 +54,22 @@ function createImage(i, w, h, x, y) {
   let img = document.createElement("img");
   img.onmouseenter = function() {
     hoverImage(this.src);
-    
   };
   img.onmouseover = function() {
     if(this.dataset.text){
+        updateTextPos = true;
         showText(this.dataset.text);
     }
   };
   img.onmouseout = function() {
     srcinfo.style.visibility = "hidden";
     floater.style.visibility = "hidden";
+    updateTextPos = false;
   };
   img.mouse
   img.onerror = function() { 
     this.setAttribute("style", 
-    "visibility: visible;"
+    "display: block;"
     )
     this.style.left = x + "px";
     this.style.top = y + "px";
@@ -102,9 +104,10 @@ function showText(text){
 }
 
 function moveText(e){
-  const x = e.clientX;
-  const y = e.clientY;
-  console.log("x: " + x + " y: " + y);
-  floater.style.left = x + 10 + "px";
-  floater.style.top = y + 10 + "px";
+  if(updateTextPos){
+    const x = e.clientX;
+    const y = e.clientY;
+    floater.style.left = x + 7 + "px";
+    floater.style.top = y + 7 + "px";
+  }
 }

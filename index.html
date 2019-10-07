@@ -20,7 +20,7 @@
   <meta name="twitter:image" content="empty-twitter.png" />
   <link rel="icon" type="image/png" href="favicon.png" />
 
-  <script defer src="js/empty.js?v=1.2"></script>
+  <script defer src="js/empty.js?v=1.3"></script>
   <script defer src="js/dragscroll.js"></script>
 
   <script>
@@ -32,34 +32,36 @@
     body {
       padding: 0;
       margin: 0;
-      /* overflow: hidden; */
+      overflow: hidden;
     }
     img {
-      display: block !important;
+      display: none;
       position: absolute;
-      visibility: hidden;
     }
     img:not([src]){ 
       display: block !important;
     }
 
     #container {
-      width: 10000px;
-      height: 10000px;
+      width: 20000px;
+      height: 20000px;
     }
 
     .dragscroll {
-      cursor: -webkit-grab;
+      /* cursor: -webkit-grab;
       cursor: -moz-grab;
       cursor: -o-grab;
-      cursor: grab;
+      cursor: grab; */
+      cursor: url('cursor/Hand1.cur'), auto;
       color: #fff;
     }
     .dragscroll:active{
-      cursor : -webkit-grabbing;
+      /* cursor : -webkit-grabbing;
       cursor : -moz-grabbing;
       cursor : -o-grabbing;
-      cursor : grabbing;
+      cursor : grabbing; */
+      cursor: url('cursor/Hand0.cur'), auto;
+
     }
     #srcinfo{
       position: fixed;
