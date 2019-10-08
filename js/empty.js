@@ -13,7 +13,7 @@ window.onload = async () => {
 
   containerWidth = container.clientWidth;
   containerHeight = container.clientHeight;
-  await createRandomImages(data.length - 1);
+  await createRandomImages(1000);
   await window.scrollTo(
     containerWidth / 2 - window.innerWidth / 2,
     containerHeight / 2 - window.innerHeight / 2
@@ -39,6 +39,9 @@ function createRandomImages(num) {
   const maxWidth = window.innerWidth / 2;
   const maxHeight = window.innerHeight / 2;
   const minSize = 20;
+
+  // TODO Start at random number
+  // const startAt = Math.floor(Math.random() * (data.length-1))
 
   for (let i = 0; i < picNum; i++) {
     let _w = Math.floor(minSize + Math.random() * maxWidth);
