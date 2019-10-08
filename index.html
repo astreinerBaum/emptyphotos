@@ -43,8 +43,8 @@
     }
 
     #container {
-      width: 20000px;
-      height: 20000px;
+      width: 40000px;
+      height: 40000px;
     }
 
     .dragscroll {
@@ -52,7 +52,8 @@
       cursor: -moz-grab;
       cursor: -o-grab;
       cursor: grab; */
-      cursor: url('cursor/Hand1.cur'), auto;
+      /* cursor: url('cursor/Hand1.cur'), auto; */
+      cursor: url('cursor/hand_grab.png') 12 12, grab;
       color: #fff;
     }
     .dragscroll:active{
@@ -60,7 +61,8 @@
       cursor : -moz-grabbing;
       cursor : -o-grabbing;
       cursor : grabbing; */
-      cursor: url('cursor/Hand0.cur'), auto;
+      /* cursor: url('cursor/Hand0.cur'), auto; */
+      cursor: url('cursor/hand_grabbing.png') 12 12, grabbing;
 
     }
     #srcinfo{
@@ -69,7 +71,7 @@
       left: 0;
       padding: 5px;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: lightgrey;
+      background-color: #eee;
       color: #444;
       visibility: hidden;
       z-index: 1;

@@ -7,7 +7,7 @@ let data;
 let updateTextPos;
 
 window.onload = async () => {
-  await fetch("data/missing061019.json")
+  await fetch("data/missing071019.json")
     .then(response => response.json())
     .then(json => (data = json));
 
@@ -107,7 +107,7 @@ function moveText(e){
   if(updateTextPos){
     const x = e.clientX;
     const y = e.clientY;
-    floater.style.left = x + 7 + "px";
-    floater.style.top = y + 7 + "px";
+    floater.style.left = x + 15 + "px";
+    floater.style.top = y + 15 + "px";
   }
 }
