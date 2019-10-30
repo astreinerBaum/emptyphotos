@@ -13,8 +13,9 @@ window.onload = async () => {
 
   containerWidth = container.clientWidth;
   containerHeight = container.clientHeight;
-  await createRandomImages(1000);
-  await window.scrollTo(
+  data = shuffle(data);
+  createRandomImages(1000);
+  window.scrollTo(
     containerWidth / 2 - window.innerWidth / 2,
     containerHeight / 2 - window.innerHeight / 2
   );
@@ -31,7 +32,7 @@ document.onclick = () => {
 }
 */
 
-function createRandomImages(num) {
+async function createRandomImages(num) {
   let w = containerWidth;
   let h = containerHeight;
   let picNum = num; //1 + Math.floor( Math.random() * num );
@@ -113,4 +114,22 @@ function moveText(e){
     floater.style.left = x + 15 + "px";
     floater.style.top = y + 15 + "px";
   }
+}
+
+function shuffle(array) {
+  var m = array.length, t, i;
+
+  // While there remain elements to shuffle…
+  while (m) {
+
+    // Pick a remaining element…
+    i = Math.floor(Math.random() * m--);
+
+    // And swap it with the current element.
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+  }
+
+  return array;
 }
